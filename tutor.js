@@ -7,18 +7,15 @@ export default async function handler(req, res) {
   const { message, history = [] } = req.body;
   if (!message) return res.status(400).json({ error: 'Message is required' });
   try {
+    const messages = [
+      { role: 'system', content: 'You are AceIt AI Tutor — a friendly expert study assistant. Give clear helpful explanations. Use examples. Be encouraging. Keep responses under 200 words.' },
+      ...history.slice(-6),
+      { role: 'user', content: message }
+    ];
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.GROQ_API_KEY },
-      body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        temperature: 0.7, max_tokens: 1000,
-        messages: [
-          { role: 'system', content: 'You are AceIt AI Tutor — a friendly, expert study assistant. Give clear, helpful explanations. Use examples. Be encouraging. Keep responses concise but complete.' },
-          ...history,
-          { role: 'user', content: message }
-        ]
-      })
+      body: JSON.stringify({ model: 'llama-3.3-70b-versatile', temperature: 0.7, max_tokens: 500, messages })
     });
     const data = await response.json();
     if (data.error) return res.status(500).json({ error: data.error.message });
