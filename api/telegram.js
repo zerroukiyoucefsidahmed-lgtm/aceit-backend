@@ -1,6 +1,6 @@
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const GROQ_KEY = process.env.GROQ_API_KEY;
-const DEVELOPER_CHAT_ID = '7677567697'; // We'll get this in a moment
+const DEVELOPER_CHAT_ID = '7677567697';
 const API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
 const APPS = {
@@ -10,6 +10,7 @@ const APPS = {
     desc_ar: 'تطبيق دراسي مدعوم بالذكاء الاصطناعي مع بطاقات تعليمية ومعلم ذكاء اصطناعي.',
     desc_fr: 'Application d\'étude IA avec flashcards, quiz, mode bataille et correcteur d\'essais.',
     version: '3.1.0',
+    download_android: 'https://github.com/zerroukiyoucefsidahmed-lgtm/aceit-backend/releases/download/3.1.0/application-3c4a56ce-3b8a-48d8-a0de-dcacd17f77af.apk',
   },
   sakina: {
     name: 'Sakina 🌿',
@@ -92,15 +93,19 @@ export default async function handler(req, res) {
     } else if (text.startsWith('/aceit')) {
       const app = APPS.aceit;
       const desc = lang === 'ar' ? app.desc_ar : lang === 'fr' ? app.desc_fr : app.desc_en;
-      await sendMessage(chatId, `🎓 <b>${app.name}</b>\n\n${desc}\n\n<b>${lang === 'ar' ? 'الإصدار' : lang === 'fr' ? 'Version' : 'Version'}:</b> ${app.version}\n\n<b>${lang === 'ar' ? 'الميزات' : lang === 'fr' ? 'Fonctionnalités' : 'Features'}:</b>\n⚡ ${lang === 'ar' ? 'مولّد بطاقات تعليمية' : lang === 'fr' ? 'Générateur de flashcards' : 'AI Flashcard Generator'}\n🧠 ${lang === 'ar' ? 'معلم ذكاء اصطناعي' : lang === 'fr' ? 'Tuteur IA' : 'AI Tutor'}\n⚔️ ${lang === 'ar' ? 'وضع المعركة' : lang === 'fr' ? 'Mode Bataille' : 'Battle Mode'}\n📝 ${lang === 'ar' ? 'مدقق المقالات' : lang === 'fr' ? 'Correcteur d\'essais' : 'Essay Checker'}\n🔒 ${lang === 'ar' ? 'آمن ومشفر' : lang === 'fr' ? 'Sécurisé' : 'Secure & Encrypted'}`);
+      await sendMessage(chatId, `🎓 <b>${app.name}</b>\n\n${desc}\n\n<b>${lang === 'ar' ? 'الإصدار' : 'Version'}:</b> ${app.version}\n\n<b>${lang === 'ar' ? 'الميزات' : lang === 'fr' ? 'Fonctionnalités' : 'Features'}:</b>\n⚡ ${lang === 'ar' ? 'مولّد بطاقات تعليمية' : lang === 'fr' ? 'Générateur de flashcards' : 'AI Flashcard Generator'}\n🧠 ${lang === 'ar' ? 'معلم ذكاء اصطناعي' : lang === 'fr' ? 'Tuteur IA' : 'AI Tutor'}\n⚔️ ${lang === 'ar' ? 'وضع المعركة' : lang === 'fr' ? 'Mode Bataille' : 'Battle Mode'}\n📝 ${lang === 'ar' ? 'مدقق المقالات' : lang === 'fr' ? 'Correcteur d\'essais' : 'Essay Checker'}\n🔒 ${lang === 'ar' ? 'آمن ومشفر' : lang === 'fr' ? 'Sécurisé' : 'Secure & Encrypted'}\n\n📥 <b>${lang === 'ar' ? 'تحميل التطبيق' : lang === 'fr' ? 'Télécharger l\'app' : 'Download App'}:</b>\n🤖 <a href="${app.download_android}">${lang === 'ar' ? 'تحميل للأندرويد' : lang === 'fr' ? 'Télécharger pour Android' : 'Download for Android'}</a>`);
 
     } else if (text.startsWith('/sakina')) {
       const app = APPS.sakina;
       const desc = lang === 'ar' ? app.desc_ar : lang === 'fr' ? app.desc_fr : app.desc_en;
-      await sendMessage(chatId, `🌿 <b>${app.name}</b>\n\n${desc}\n\n<b>${lang === 'ar' ? 'الإصدار' : lang === 'fr' ? 'Version' : 'Version'}:</b> ${app.version}\n\n<b>${lang === 'ar' ? 'الميزات' : lang === 'fr' ? 'Fonctionnalités' : 'Features'}:</b>\n💙 ${lang === 'ar' ? 'مرافق عاطفي' : lang === 'fr' ? 'Compagnon émotionnel' : 'AI Emotional Companion'}\n😊 ${lang === 'ar' ? 'تتبع المزاج' : lang === 'fr' ? 'Suivi humeur' : 'Mood Tracker'}\n🧘 ${lang === 'ar' ? 'تمارين التنفس' : lang === 'fr' ? 'Exercices de respiration' : 'Breathing Exercises'}\n🕌 ${lang === 'ar' ? 'محتوى إسلامي' : lang === 'fr' ? 'Contenu islamique' : 'Islamic Content'}\n🤝 ${lang === 'ar' ? 'مجتمع مجهول' : lang === 'fr' ? 'Communauté anonyme' : 'Anonymous Community'}`);
+      await sendMessage(chatId, `🌿 <b>${app.name}</b>\n\n${desc}\n\n<b>${lang === 'ar' ? 'الإصدار' : 'Version'}:</b> ${app.version}\n\n<b>${lang === 'ar' ? 'الميزات' : lang === 'fr' ? 'Fonctionnalités' : 'Features'}:</b>\n💙 ${lang === 'ar' ? 'مرافق عاطفي' : lang === 'fr' ? 'Compagnon émotionnel' : 'AI Emotional Companion'}\n😊 ${lang === 'ar' ? 'تتبع المزاج' : lang === 'fr' ? 'Suivi humeur' : 'Mood Tracker'}\n🧘 ${lang === 'ar' ? 'تمارين التنفس' : lang === 'fr' ? 'Exercices de respiration' : 'Breathing Exercises'}\n🕌 ${lang === 'ar' ? 'محتوى إسلامي' : lang === 'fr' ? 'Contenu islamique' : 'Islamic Content'}\n🤝 ${lang === 'ar' ? 'مجتمع مجهول' : lang === 'fr' ? 'Communauté anonyme' : 'Anonymous Community'}\n\n📥 <b>${lang === 'ar' ? 'قريباً على' : lang === 'fr' ? 'Bientôt sur' : 'Coming soon on'} Play Store & App Store</b>`);
 
     } else if (text.startsWith('/apps')) {
       await sendMessage(chatId, `📱 <b>${lang === 'ar' ? 'تطبيقاتنا' : lang === 'fr' ? 'Nos Applications' : 'Our Apps'}</b>\n\n🎓 <b>AceIt</b> — /aceit\n${lang === 'ar' ? 'تطبيق دراسي بالذكاء الاصطناعي' : lang === 'fr' ? 'App d\'étude IA' : 'AI Study App'}\n\n🌿 <b>Sakina</b> — /sakina\n${lang === 'ar' ? 'تطبيق الصحة النفسية' : lang === 'fr' ? 'App bien-être' : 'Mental Wellness App'}\n\n${lang === 'ar' ? '🚀 المزيد قادم قريباً...' : lang === 'fr' ? '🚀 Plus à venir bientôt...' : '🚀 More apps coming soon...'}\n\n<i>${lang === 'ar' ? 'بواسطة ZERROUKI YOUCEF' : lang === 'fr' ? 'par ZERROUKI YOUCEF' : 'by ZERROUKI YOUCEF'}</i>`);
+
+    } else if (text.startsWith('/download')) {
+      const app = APPS.aceit;
+      await sendMessage(chatId, `📥 <b>${lang === 'ar' ? 'تحميل AceIt' : lang === 'fr' ? 'Télécharger AceIt' : 'Download AceIt'}</b>\n\n🤖 <b>Android:</b> <a href="${app.download_android}">${lang === 'ar' ? 'اضغط هنا للتحميل' : lang === 'fr' ? 'Cliquez ici pour télécharger' : 'Click here to download'}</a>\n\n${lang === 'ar' ? '⚠️ ملاحظة: قد تحتاج إلى تفعيل "تثبيت من مصادر غير معروفة" في إعدادات هاتفك.' : lang === 'fr' ? '⚠️ Note: Vous devrez peut-être activer "Sources inconnues" dans vos paramètres.' : '⚠️ Note: You may need to enable "Install from unknown sources" in your phone settings.'}`);
 
     } else if (text.startsWith('/bug')) {
       const report = text.replace('/bug', '').trim();
