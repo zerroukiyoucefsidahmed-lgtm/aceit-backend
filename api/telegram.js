@@ -1,6 +1,6 @@
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const GROQ_KEY = process.env.GROQ_API_KEY;
-const DEVELOPER_CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID'; // We'll get this in a moment
+const DEVELOPER_CHAT_ID = '7677567697'; // We'll get this in a moment
 const API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
 const APPS = {
