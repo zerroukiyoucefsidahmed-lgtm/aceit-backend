@@ -10,7 +10,7 @@ const APPS = {
     desc_ar: 'تطبيق دراسي مدعوم بالذكاء الاصطناعي مع بطاقات تعليمية ومعلم ذكاء اصطناعي.',
     desc_fr: 'Application d\'étude IA avec flashcards, quiz, mode bataille et correcteur d\'essais.',
     version: '3.1.0',
-    download_android: 'https://drive.google.com/uc?export=download&id=19jaPREpXUJ-JR0eUcm0vhBWh6nkipc4C',
+    download_android: 'https://drive.google.com/file/d/19jaPREpXUJ-JR0eUcm0vhBWh6nkipc4C/view?usp=sharing',
   },
   sakina: {
     name: 'Sakina 🌿',
