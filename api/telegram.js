@@ -9,8 +9,8 @@ const APPS = {
     desc_en: 'AI-powered study app with flashcards, quiz mode, battle mode, AI tutor and essay checker.',
     desc_ar: 'تطبيق دراسي مدعوم بالذكاء الاصطناعي مع بطاقات تعليمية ومعلم ذكاء اصطناعي.',
     desc_fr: 'Application d\'étude IA avec flashcards, quiz, mode bataille et correcteur d\'essais.',
-    version: '3.1.0',
-    download_android: 'https://drive.google.com/file/d/19jaPREpXUJ-JR0eUcm0vhBWh6nkipc4C/view?usp=sharing',
+    version: '4.1.0',  // ✅ updated
+    download_android: 'https://drive.google.com/file/d/183jiQ_KJ1_4l4zc_olMneRQBKYGnvq6O/view?usp=sharing',  // ✅ updated
   },
   sakina: {
     name: 'Sakina 🌿',
@@ -86,7 +86,6 @@ export default async function handler(req, res) {
     const lang = USERS[chatId]?.lang || detectLang(text);
     USERS[chatId] = { lang, name };
 
-    // Commands
     if (text.startsWith('/start')) {
       await sendMessage(chatId, getWelcome(lang, name));
 
@@ -128,7 +127,6 @@ export default async function handler(req, res) {
       await sendMessage(chatId, lang === 'ar' ? '❓ أمر غير معروف. اكتب /help للمساعدة.' : lang === 'fr' ? '❓ Commande inconnue. Tapez /help pour aide.' : '❓ Unknown command. Type /help for assistance.');
 
     } else {
-      // AI reply for any other message
       const reply = await getAIReply(text, lang);
       await sendMessage(chatId, `🤖 ${reply}\n\n${lang === 'ar' ? 'للمزيد: /help' : lang === 'fr' ? 'Pour plus: /help' : 'For more: /help'}`);
     }
